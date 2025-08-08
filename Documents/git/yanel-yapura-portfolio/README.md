@@ -1,5 +1,35 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Deploy en GitHub Pages (Project Page)
+
+Está configurado para export estático y despliegue en `https://yanelyapura.github.io/yanel-yapura-portfolio/`.
+
+1) Configuración incluida
+
+- `next.config.ts` con:
+  - `output: "export"`
+  - `images.unoptimized: true`
+  - `basePath` y `assetPrefix` a `/yanel-yapura-portfolio` en producción
+- Scripts: `npm run build` y `npm run export` generan `out/`.
+- GitHub Actions: `.github/workflows/deploy.yml` publica `out/` en Pages al hacer push a `main`.
+
+2) Pasos para publicar
+
+```bash
+git init
+git branch -M main
+git remote add origin https://github.com/yanelyapura/yanel-yapura-portfolio.git
+git add .
+git commit -m "feat: inicial"
+git push -u origin main
+```
+
+3) En GitHub → Settings → Pages
+
+- Source: GitHub Actions
+- Espera a que el workflow termine y visita:
+  `https://yanelyapura.github.io/yanel-yapura-portfolio/`
+
 ## Getting Started
 
 First, run the development server:
